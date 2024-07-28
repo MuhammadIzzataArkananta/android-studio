@@ -5,12 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0FA9A9"
+    android:backgroundTint="#E7E7E7"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvTampil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:autoText="false"
+        android:background="#00BCD4"
+        android:text="Halo rek"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
