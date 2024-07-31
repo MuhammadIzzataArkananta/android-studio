@@ -1,8 +1,12 @@
 package com.komputerkit.messagedialog;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -16,41 +20,54 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        System.out.println("onCreate");
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        System.out.println("onStart");
+    public void showToast(String pesan){
+        Toast.makeText(this, pesan, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    public void showAlert(String pesan){
+        AlertDialog.Builder buatAlert = new AlertDialog.Builder(this);
+        buatAlert.setTitle("PERHATIAN !");
+        buatAlert.setMessage(pesan);
 
-        System.out.println("onResume");
+        buatAlert.show();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
+    public void showAlertButton(String pesan){
+        AlertDialog.Builder showAlert = new AlertDialog.Builder(this);
+        showAlert.setTitle("PERINGATAN !");
+        showAlert.setMessage(pesan);
 
-        System.out.println("onPause");
+        showAlert.setPositiveButton("YA", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                showToast("Data Sudah Dihapus");
+
+            }
+        });
+
+        showAlert.setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                showToast("Data Tidak Dihapus");
+            }
+        });
+
+        showAlert.show();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        System.out.println("onStop");
+    public void btnToast(View view){
+        showToast("Selamat Belajar");
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void btnAlert(View view){
+        showAlert("Selamat Belajar !");
 
-        System.out.println("onDestroy");
     }
+
+    public void btnAlertDialogButton(View view){
+        showAlertButton("Yakin Akan Menghapus ?");
+    }
+
 }
