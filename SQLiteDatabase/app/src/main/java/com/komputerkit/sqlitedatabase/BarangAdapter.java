@@ -50,7 +50,7 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.ViewHolder
 
                         int id = item.getItemId();
                         if (id == R.id.ubah) {
-                            Toast.makeText(context, "UBAH", Toast.LENGTH_SHORT).show();
+                            ((MainActivity)context).selectUpdate(barangList.get(i).getIdbarang());
                         } else if (id == R.id.hapus) {
                             ((MainActivity)context).deleteData(barangList.get(i).getIdbarang());
                         } else {
