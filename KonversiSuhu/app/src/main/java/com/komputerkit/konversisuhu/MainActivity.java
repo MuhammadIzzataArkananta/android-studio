@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void cToK(){
         double suhu=Double.parseDouble(etNilai.getText().toString());
-        double hasil=(suhu + 273.15);
+        double hasil=(suhu + 273);
         tvHasil.setText(hasil+"");
     }
 
