@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         String sql = "SELECT * FROM tblbarang ORDER BY barang ASC";
         Cursor cursor = db.select(sql);
         databarang.clear();
+
         if (cursor.getCount() > 0){
             while (cursor.moveToNext()){
                 String idbarang = cursor.getString(cursor.getColumnIndex("idbarang"));
